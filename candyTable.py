@@ -3,7 +3,8 @@ import itertools
 import sys
 np.set_printoptions(threshold=sys.maxsize)
 
-dim = 5
+dim = 4
+
 
 def main():
     # [1+1d] child_pulls
