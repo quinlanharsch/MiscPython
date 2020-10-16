@@ -1,7 +1,7 @@
 import numpy as np
 import itertools
 import sys
-np.set_printoptions(threshold=255)
+np.set_printoptions(threshold=255)  # sys.maxsize
 
 # =GLOBALS===============
 # (I'm not writing args for one int variable)
