@@ -5,22 +5,17 @@ np.set_printoptions(threshold=sys.maxsize)
 
 dim = 5
 
-
 def main():
     # [1+1d] child_pulls
     # every possible combination of candy pulls
     # works only because the number of children = the number of candies taken
     child_pulls = [list(i) for i in itertools.combinations_with_replacement(list(range(dim)), dim)]
 
-    # [1+2d] group_pulls
-    # every possible combination of combination of candy pulls assuming no candy limits
-    group_pulls = [list(i) for i in itertools.combinations_with_replacement(child_pulls, dim)]
-    group_pulls = np.array(group_pulls)  # np array
-
-    # [1+2d] valid_group_pulls
-    # takes into account there can only be dim candies
+    # (iter) group_pulls & [1+2d] valid_group_pulls
+    # every possible combination of combination of candy pulls taking into account there can only be dim candies
     valid_group_pulls = []
-    for group_pull in group_pulls:
+    for group_pull in itertools.combinations_with_replacement(child_pulls, dim):
+        group_pull = np.array(group_pull)
         count = np.bincount(group_pull.ravel())
         if all([True if c == dim else False for c in count]):  # each count == dim
             valid_group_pulls.append(group_pull)
