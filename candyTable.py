@@ -14,7 +14,7 @@ def main():
     # [1+1d] child_pulls
     # every possible combination of any given child's candy pulls
     child_pulls = [list(i) for i in itertools.combinations_with_replacement(list(range(dim)), dim)]
-    # TODO ** should be moved here in the iter..., too bad. I already got my
+    # TODO ** should be moved here in the iter..., too bad. I already got my answer
     # TODO holy god, that's why it takes 3 hours for dim > 5
 
     # (iter) group_pulls & [1+2d] valid_group_pulls
