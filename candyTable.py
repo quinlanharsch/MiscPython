@@ -14,8 +14,6 @@ def main():
     # [1+1d] child_pulls
     # every possible combination of any given child's candy pulls
     child_pulls = [list(i) for i in itertools.combinations_with_replacement(list(range(dim)), dim)]
-    # TODO ** should be moved here in the iter..., too bad. I already got my answer
-    # TODO holy god, that's why it takes 3 hours for dim > 5
 
     # (iter) group_pulls & [1+2d] valid_group_pulls
     # every possible combination of candy pulls with filter taking into account there can only be dim candies
@@ -23,7 +21,6 @@ def main():
     for group_pull in itertools.combinations_with_replacement(child_pulls, dim):
         group_pull = np.array(group_pull)
         count = np.bincount(group_pull.ravel())
-        # TODO **
         if all([True if c == dim else False for c in count]):  # each count == dim
             valid_group_pulls.append(group_pull)
     valid_group_pulls = np.array(valid_group_pulls)  # np array
